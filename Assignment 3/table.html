@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Table CheckList</title>
+		<link rel="stylesheet" type="text/css" href="table.css">
+		<link rel="stylesheet" type="text/css" href="style.css">
+	</head>
+	<body>
+		<table id="myTable">
+			<thead>
+				<tr id="thead-row-1">
+					<th></th>
+					<th>STUDENT</th>
+					<th>ADVISOR</th>
+					<th>AWARD<br/>STATUS</th>
+					<th>SEMESTER</th>
+					<th>TYPE</th>
+					<th>BUDGET<br />#</th>
+					<th>PERCENTAGE</th>
+					<th id="head-del" class="delete" hidden>DELETE</th>
+					<th id="head-edit" class="edit" hidden>EDIT</th>
+				</tr>
+			</thead>
+			<tbody id="tbody">
+				<tr id="tbody-row-1">
+					<td>
+						<input class="check-box" type="checkbox" onclick="checkedAction(this)" /> <br/><br/> 
+						<img src="down.png" width="25px" onclick="showHide(this)" />
+					</td>
+					<td>Student 1</td>
+					<td>Teacher 1</td>
+					<td>Approved</td>
+					<td>Fall</td>
+					<td>TA</td>
+					<td>12345</td>
+					<td>100%</td>
+					<td class="delete" hidden><button onclick="deleteFun(this)">Delete</button></td>
+					<td class="edit" hidden><button onclick="editFun(this)">Edit</button></td>
+				</tr>
+				<tr class="dropDownTextArea tbody-row-1" hidden>
+					<td colspan="8">
+					Advisor:<br /><br />
+					Award Details<br />
+					Summer 1-2014(TA)<br />
+					Budget Number: <br />
+					Tuition Number: <br />
+					Comments:<br /><br /><br />
+					Award Status:<br /><br /><br />
+					</td>
+				</tr>
+				<tr id="tbody-row-2">
+					<td>
+						<input class="check-box" type="checkbox" onclick="checkedAction(this)" /> <br/><br/> 
+						<img src="down.png" width="25px" onclick="showHide(this)" />
+					</td>
+					<td>Student 2</td>
+					<td>Teacher 2</td>
+					<td>Approved</td>
+					<td>Fall</td>
+					<td>TA</td>
+					<td>23456</td>
+					<td>100%</td>
+					<td class="delete" hidden><button onclick="deleteFun(this)">Delete</button></td>
+					<td class="edit" hidden><button onclick="editFun(this)">Edit</button></td>
+				</tr>
+				<tr class="dropDownTextArea tbody-row-2" hidden>
+					<td colspan="8">
+						Advisor:<br /><br />
+						Award Details<br />
+						Summer 1-2014(TA)<br />
+						Budget Number: <br />
+						Tuition Number: <br />
+						Comments:<br /><br /><br />
+						Award Status:<br /><br /><br />
+					</td>
+				</tr>
+				<tr id="tbody-row-3">
+					<td>
+						<input class="check-box" type="checkbox" onclick="checkedAction(this)" /> <br/><br/> 
+						<img src="down.png" width="25px" onclick="showHide(this)" />
+					</td>
+					<td>Student 3</td>
+					<td>Teacher 3</td>
+					<td>Approved</td>
+					<td>Fall</td>
+					<td>TA</td>
+					<td>34567</td>
+					<td>100%</td>
+					<td class="delete" hidden><button onclick="deleteFun(this)">Delete</button></td>
+					<td class="edit" hidden><button onclick="editFun(this)">Edit</button></td>
+				</tr>
+				<tr class="dropDownTextArea tbody-row-3" hidden>
+					<td colspan="8">
+						Advisor:<br /><br />
+						Award Details<br />
+						Summer 1-2014(TA)<br />
+						Budget Number: <br />
+						Tuition Number: <br />
+						Comments:<br /><br /><br />
+						Award Status:<br /><br /><br />
+					</td>
+				</tr>
+			</tbody>
+		</table>
+
+		<br/><br/>
+		
+		<button id="button" disabled>SUBMIT SELECTED AWARDS</button>
+		<button id="add" onclick="addRcords()">Add New Student</button>
+
+		<script src="script.js"></script>
+	
+	</body>
+</html>

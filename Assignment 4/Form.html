@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <title>Feedback</title>
+  <style>
+    label {	float: left;
+			width: 150px;}
+      #container{
+          width: 700px;
+          margin: auto;
+          background-color: beige;
+      } 
+      main{
+          padding: 50px;
+      }
+  </style>
+ </head>
+ <body>
+	<script src="script.js"></script>
+ <div id="container">
+	 
+	 <main>
+	 <h2>Feeback</h2>
+	 <h3>Love something? Hate something? Let us know!</h3>
+		 Note : Fields marked with an asterisk(*) are mandatory
+		 <br><br>
+		 <form method="post">
+			<label>Title*:</label>
+			<input type="radio" name="title" id="miss" value="miss" required="required"/>Miss
+			<input type="radio" name="title" id="mr" value="mr" required="required"/>Mr.
+			<input type="radio" name="title" id="mrs" value="mrs" required="required"/>Mrs.
+			<br><br>
+			<label for="firstName">First Name*:</label>
+			<input type="text" name="firstName" id="firstName" placeholder="First Name" required />	
+			<br><br>
+
+			<label for="lastName">Last Name*:</label>
+			<input type="text" name="lastName" id="lastName" placeholder="Last Name" required />
+			<br><br>
+
+			<label for="emailId">Email Id*:</label>
+			<input type="text" name="emailId" id="emailId" required="required" placeholder="yourname@northeastern.edu"  />
+			<br><br>
+			<div id="errorMsgEmailid" style="display: none;color:red;">
+				Invalid Input for the Email ID. Please Enter Valid Email ID.
+			</div>
+
+			<label for="phoneNumber">Phone Number*:</label>
+			<input type="text" name="phoneNumber" id="phoneNumber" required="required" placeholder="xxx-xxx-xxxx" />
+			<br><br>
+			<div id="errorMsgphoneNumber" style="display: none;color:red;">
+				Invalid Input for the Phone Number. Please Enter valid Contact Number.
+			</div>
+
+			<label for="streetAddress1">Street Address 1*:</label>
+			<input type="text" name="streetAddress1" id="streetAddress1" placeholder="address" required />
+			<br><br>
+
+			<label for="streetAddress2">Street Address 2:</label>
+			<input type="text" name="streetAddress2" id="streetAddress2" placeholder="address" />
+			<br><br>
+
+			<label for="city">City*:</label>
+			<input type="text" name="city" id="city" placeholder="city" required />
+			<br><br>
+
+			<label for="state">State*:</label>
+			<input type="text" name="state" id="state" placeholder="state" required />
+			<br><br>
+			
+            <label for="zipcode">ZipCode*:</label>
+			<input type="text" name="zipcode" id="zipcode" required="required" placeholder="xxxxxx" />
+			<br><br>
+			<div id="errorMsgZipCode" style="display: none;color:red;">
+				Invalid Input for the Zipcode. Please Enter valid Zipcode.
+			</div>
+             
+            <label for="how">How did you hear*:</label>
+			<input type='checkbox' name="source" value="facebook" /> Facebook
+            <input type='checkbox' name="source" value="google" /> Google
+            <input type='checkbox' name="source" value="yelp" /> Yelp 
+			<br><br> 
+             
+			<label for="Subjects">Choose a Subject:</label>
+			<select name="subjects" id="subjects" onchange="onSelect(this)">
+				<option value="Please Select">Please Select</option>
+				<option value="AED">AED</option>
+				<option value="Web Design">Web Design</option>
+				<option value="OOD">OOD</option>
+				<option value="Cloud Computing">Cloud Computing</option>
+				<option value="DMDD">DMDD</option>
+				
+			</select>
+			<br><br>
+			<input type ='checkbox' name="addon" id="addon" style="display: none" onclick="onchecked(this)"/>
+			<div id="addontext"></div>
+			<br><br>
+			<label for="suggest" id="suggest" style="display: none">Please give some Suggestions*:</label>
+			<input type="text" name="suggestion" id = "suggestion" required="required" style="display: none"/>
+             <br><br>
+			<label for="comments">Comments*:</label>
+			<textarea name="text" name="comments" id="comments" placeholder="Your comments" rows="5" cols="25"></textarea>
+			<br><br>
+			<div style="text-align: center;">
+				<button type="submit" id ="submit" value="Submit">Submit</button>
+				<input type="Reset">
+			</div>
+			
+			<br><br>
+		 </form>
+	 </main>
+ </div>
+
+ <script>
+ 
+ </script>
+
+ </body>
+</html>

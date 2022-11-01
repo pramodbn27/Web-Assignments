@@ -1,0 +1,14 @@
+body { background-image: rgb(54, 3, 173);
+    font-family: Verdana, Arial, sans-serif; }
+header { background-color: #000033;
+      color:#FF9;
+      line-height: 400%;
+      }
+      body { background-color: lightblue;}
+      p {color: rgb(110, 89, 160);}
+      video {width: "540" height="500"
+    }
+      img {
+        max-width: 50%;
+        height: 75%;
+    }  

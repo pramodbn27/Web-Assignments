@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Home</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+  </head>
+  <body>
+    <div class="container pt-5">
+      <div class="mx-auto p-4" style="border: 1px solid gray;border-radius:5px; max-width:500px;">
+        <form>
+          <div class="mb-3">
+            <label for="user-email" class="form-label">Email address</label>
+            <input type="text" class="form-control" id="user-email" aria-describedby="emailDesc">
+            <div id="emailDesc" class="form-text"></div>
+          </div>
+          <div class="mb-3">
+            <label for="user-name" class="form-label">User Name</label>
+            <input type="text" class="form-control" id="user-name" aria-describedby="nameDesc">
+            <div id="nameDesc" class="form-text"></div>
+          </div>
+          <div class="mb-3">
+            <label for="user-password" class="form-label">Password</label>
+            <input type="password" class="form-control" id="user-password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" aria-describedby="PassDesc" maxlength="20">
+            <div id="PassDesc" class="form-text">
+              <span id="letter" class="text-danger">A lowercase letter</span><br>
+              <span id="capital" class="text-danger">A capital (uppercase) letter</span><br>
+              <span id="number" class="text-danger">A number</span><br>
+              <span id="special" class="text-danger">A Special charecter</span><br>
+              <span id="length" class="text-danger">Minimum 8 characters</span>
+            </div>
+          </div>
+          <button id="submit-btn" type="button" class="btn btn-primary">Submit</button>
+        </form>
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+      $(document).ready(() => {
+        $("#user-email").on('change', () => {
+          emailValidation();
+        });
+
+        $("#user-name").on('change', () => {
+          userNameValidation();
+        });
+
+        $("#user-password").on('keyup', () => {
+          // console.log(passwordValidation());
+          passwordValidation();
+        });
+
+        $("#submit-btn").on('click', () => {
+          if(emailValidation() && userNameValidation() && passwordValidation()){
+            window.location = "calculator.html?n="+$("#user-name").val();
+          }
+          else
+            return false;
+        });
+
+        emailValidation = () =>{
+          let emailarr = $("#user-email").val().split("@");
+          console.log(emailarr[1]);
+          if(emailarr.length <=1 || emailarr[1] == 'undefined' || emailarr[1] != "northeastern.edu" || emailarr[0] == "")
+          {
+            $("#emailDesc").html("Invalid Email. It should be yourname@northeastern.edu");
+            $("#emailDesc").addClass("text-danger");
+            $("#user-email").addClass("border border-danger");
+            $("#emailDesc").show();
+            return false;
+          }
+          else{
+            $("#emailDesc").hide();
+            $("#user-email").removeClass("border border-danger");
+            $("#user-email").addClass("border border-success");
+            return true;
+          }
+        }
+
+        userNameValidation = () => {
+          console.log($("#user-name").val());
+          if($("#user-name").val() == "")
+          {
+            $("#nameDesc").html("Incompatible blank user name");
+            $("#nameDesc").addClass("text-danger");
+            $("#user-name").addClass("border border-danger");
+            $("#nameDesc").show();
+            return false;
+          }
+          else{
+            $("#nameDesc").hide();
+            $("#user-name").removeClass("border border-danger");
+            $("#user-name").addClass("border border-success");
+            return true;
+          }
+        }
+
+        passwordValidation = () => {
+          console.log($("#user-password").val());
+          let flag = 0;
+          // Validate lowercase letters
+          var lowerCaseLetters = /[a-z]/g;
+          if($("#user-password").val().match(lowerCaseLetters)) {  
+            $("#letter").removeClass("text-danger");
+            $("#letter").addClass("text-success");
+            flag = 1;
+          } else {
+            $("#letter").removeClass("text-success");
+            $("#letter").addClass("text-danger");
+            flag = 0;
+          }
+          
+          // Validate capital letters
+          var upperCaseLetters = /[A-Z]/g;
+          if($("#user-password").val().match(upperCaseLetters)) {  
+            $("#capital").removeClass("text-danger");
+            $("#capital").addClass("text-success");
+            flag = 1;
+          } else {
+            $("#capital").removeClass("text-success");
+            $("#capital").addClass("text-danger");
+            flag = 0;
+          }
+
+          // Validate numbers
+          var numbers = /[0-9]/g;
+          if($("#user-password").val().match(numbers)) {  
+            $("#number").removeClass("text-danger");
+            $("#number").addClass("text-success");
+            flag = 1;
+          } else {
+            $("#number").removeClass("text-success");
+            $("#number").addClass("text-danger");
+            flag = 0;
+          }
+
+
+          // Special Charecter
+          var numbers = /[!@#$%&*_?]/g;
+          if($("#user-password").val().match(numbers)) {  
+            $("#special").removeClass("text-danger");
+            $("#special").addClass("text-success");
+            flag = 1;
+          } else {
+            $("#special").removeClass("text-success");
+            $("#special").addClass("text-danger");
+            flag = 0;
+          }
+          
+          // Validate length
+          if($("#user-password").val().length >= 8) {
+            $("#length").removeClass("text-danger");
+            $("#length").addClass("text-success");
+            flag = 1;
+          } else {
+            $("#length").removeClass("text-success");
+            $("#length").addClass("text-danger");
+            flag = 0;
+          }
+          if(flag){
+            $("#user-password").removeClass("border border-danger");
+            $("#user-password").addClass("border border-success");
+            return true;
+          }
+          else{
+            $("#user-password").removeClass("border border-success");
+            $("#user-password").addClass("border border-danger");
+            return false;
+          }
+        }
+      });
+    </script>
+  </body>
+</html>
