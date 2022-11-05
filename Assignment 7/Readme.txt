@@ -8,6 +8,6 @@
 
 5. Placeholder at line No. 19 in main_style.scss and use it at line no 52 and 56.
 
-6. also some operators are used check line no. 61 and 65 main_style.scss.
+6. also few operators are used check line no. 61 and 65 main_style.scss.
 
 7. Many other feature are also used in this project.
