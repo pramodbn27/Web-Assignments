@@ -11,7 +11,7 @@ const routes = require('./app/routes');
 require("dotenv").config();
 
 //connect mongodb
-mongoose.connect(process.env.DATABASE,{ 
+mongoose.connect(mongodb://127.0.0.1/my_database,{ 
     useNewUrlParser: true, 
     useUnifiedTopology: true,
     useCreateIndex: true
